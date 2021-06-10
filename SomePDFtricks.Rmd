@@ -1,0 +1,27 @@
+---
+title: "Test"
+author: "Brian Rusk"
+date: "30/05/2021"
+output: 
+    pdf_document:
+        df_print: kable
+        keep_tex: true
+# fontsize: 12pt # by default you can only use 10, 11, or 12pt font unless you use an additional package.
+geometry: margin=2cm
+
+header-includes:
+- \usepackage[fontsize=14pt]{scrextend}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+`r lorem::ipsum(paragraphs = 3, sentences = c(3, 5, 4))`
+
+# A table
+
+```{r, echo=FALSE}
+head(mtcars)
+```
+

@@ -1,0 +1,72 @@
+---
+title: "Test"
+author: "Brian Rusk"
+date: "30/05/2021"
+output: 
+    html_document:
+        pandoc_args: [
+        "--title-prefix", "Foo", 
+        "--id-prefix", "Bar"
+        ]
+        keep_md: true
+        theme: spacelab
+        highlight: pygments
+        toc: true
+        toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Some math features {.tabset .tabset-fade .tabset-pills}
+
+## A basic formula
+
+$$f(k) = {n \choose k} p^{k} (1-p)^{n-k}$$
+
+## An array
+
+$$\begin{array}{ccc}
+x_{11} & x_{12} & x_{13}\\
+x_{11} & x_{12} & x_{13}
+\end{array}$$
+
+## A p matrix
+
+$$\Theta = \begin{pmatrix}\alpha & \beta\\
+\gamma & \delta
+\end{pmatrix}$$
+
+## A b matrix
+
+$$X = \begin{bmatrix}
+1 & x_{1}\\
+1 & x_{2}\\
+1 & x_{3}
+\end{bmatrix}$$
+
+# Leaflet Maps {.tabset}
+
+## Tainan Home
+
+```{r out.width='100%', echo=TRUE}
+library(leaflet)
+leaflet() %>% addTiles() %>%
+  setView(120.209, 23.018, zoom = 17) %>%
+  addPopups(
+    120.209, 23.018,
+    'Here is my home.'
+  )
+```
+## Gran's House
+
+```{r out.width='100%', echo=FALSE}
+library(leaflet)
+leaflet() %>% addTiles() %>%
+  setView(-122.301, 49.047, zoom = 17) %>%
+  addPopups(
+    -122.30084, 49.0465,
+    "Here is my Gran's home."
+  )
+```
